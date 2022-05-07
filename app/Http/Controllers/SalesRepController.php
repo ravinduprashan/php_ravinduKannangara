@@ -17,7 +17,7 @@ class SalesRepController extends Controller
         $this->repository = $repository;
     }
 
-
+// root page show sales rep all detail
     public function index()
     {
         $salesReps = $this->repository->all();
@@ -25,23 +25,14 @@ class SalesRepController extends Controller
         return view('salesrep.index', compact('salesReps','routes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+//     create sales rep
     public function create()
     {
         $routes = Routes::all();
         return view('salesrep.edit', compact('routes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+//     store sales rep   
     public function store(Request $request)
     {
         $messages = [
@@ -91,23 +82,8 @@ class SalesRepController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    // edit sales rep view
     public function edit($id)
     {
         $routes = Routes::all();
@@ -115,13 +91,7 @@ class SalesRepController extends Controller
         return view('salesrep.edit', compact('salesrep','routes'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+  // edit sales rep
     public function update(Request $request, $id)
     {
         $messages = [
@@ -157,13 +127,8 @@ class SalesRepController extends Controller
         return redirect()->route('salesrep.list')
             ->with('success', 'Sales Rep ' . $request->first_name . ' updated successfully');
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
+// delete sales rep
     public function delete($id)
     {
         $this->repository->delete($id);

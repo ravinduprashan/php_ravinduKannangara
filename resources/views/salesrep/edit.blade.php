@@ -10,6 +10,13 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                @if (session()->has('error'))
+                    <div class="alert-warning" role="alert">
+                        <p class="warning">
+                            <span>{{ session()->get('error') }}</span><span><a href="{{ url('/salesrep/edit/'.Session::get('duplicate_client')) }}" target="_blank">{{ Session::get('duplicate_client_name') }}</a></span>
+                        </p>
+                    </div>
+                @endif
                 <div class="card-header"><h2>{{ isset($salesrep) ? "Edit Sales Rep" : "Create Sales Representative" }}</h2></div>
                 <div class="card-body">
                     <div class="align-items-right mb-3">

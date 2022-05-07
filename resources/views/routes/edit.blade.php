@@ -10,13 +10,6 @@
             </p>
         </div>
     @endif
-    @if (session()->has('error'))
-        <div class="alert-warning" role="alert">
-            <p class="warning">
-                <span>{{ session()->get('error') }}</span><span><a href="{{ url('/salesrep/edit/'.Session::get('duplicate_client')) }}" target="_blank">{{ Session::get('duplicate_client_name') }}</a></span>
-            </p>
-        </div>
-    @endif
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header"><h2>Add Area Routes</h2></div>
@@ -33,16 +26,16 @@
                     <div class="form-group">
                         <label for="name" class="col-form-label">Route Name<em>*</em></label>
                         @error('name')
-        <div class="alert alert-danger" style="color: red">{{ $message }}</div>
-        @enderror
+                    <div class="alert alert-danger" style="color: red">{{ $message }}</div>
+                    @enderror
                         <input type="text" class="form-control" name="name" value="{{ $salesrep->first_name ?? '' }}">
                     </div>
 
                     <div class="form-group">
                         <label for="area" class="col-form-label">Route Area<em>*</em></label>
                         @error('area')
-        <div class="alert alert-danger" style="color: red">{{ $message }}</div>
-        @enderror
+                    <div class="alert alert-danger" style="color: red">{{ $message }}</div>
+                    @enderror
                         <input type="text" class="form-control" name="area" value="{{ $salesrep->last_name ?? '' }}">
                     </div>
 
